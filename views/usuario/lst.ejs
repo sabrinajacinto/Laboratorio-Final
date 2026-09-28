@@ -1,0 +1,63 @@
+<%-include('../cabecalho.ejs')%>
+    <h1>Usuário</h1>
+    <div>
+        <form action="
+        " method="post">
+            <input type="text" name="filtro" id="" placeholder="digite o nome">
+            <button type="submit">Pesquisar</button>
+        </form>
+    </div>
+    <a href="/usuario/add">+ Usuario</a>
+    <table>
+        <tr>
+            <td>Usuario</td>
+            <td>E-mail</td>
+            <td>Senha</td>
+            <td>Telefone</td>
+            <td>Data de Nascimento</td>
+            <td>Possui Alguma Cirurgia</td>
+            <td>CPF</td>
+
+
+
+
+        </tr>
+<% for (const {_id, nome, email, senha, telefone, dataNascimento, algumacirurgia, cpf} of usuarios) { %>
+
+    <tr>
+        <td>
+            <%=nome%>
+        </td>
+
+        <td>
+            <%=email%>
+        </td>
+
+        <td>
+            <%=senha%>
+        </td>
+
+        <td>
+            <%=telefone%>
+        </td>
+
+        <td>
+            <%=dataNascimento%>
+        </td>
+
+        <td>
+            <%=algumacirurgia%>
+        </td>
+
+        <td>
+            <%=cpf%>
+        </td>
+
+        <td>
+            <a href="/usuario/edt/<%=_id%>">Editar</a>
+            <a href="/usuario/del/<%=_id%>">Excluir</a>
+        </td>
+    </tr>
+
+<% } %>
+

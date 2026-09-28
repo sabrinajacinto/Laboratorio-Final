@@ -1,0 +1,61 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Especialidade</h1>
+
+<a href="/especialidade/add" class="btn add">+ Especialidade</a>
+
+<form action="/especialidade/find" method="POST" class="search">
+    <input
+        type="text"
+        name="filtro"
+        placeholder="Pesquisar especialidade..."
+    >
+
+    <button type="submit" class="btn">
+        Pesquisar
+    </button>
+</form>
+
+<table>
+
+    <tr>
+        <th>Especialidade:</th>
+        <th>Nome do Médico:</th>
+        <th>Ação:</th>
+    </tr>
+
+    <% for (const Especialidade of especialidades) { %>
+
+        <tr>
+
+            <td>
+                <%= Especialidade.especialidade %>
+            </td>
+
+            <td>
+                <%= Especialidade.nomedomedico %>
+            </td>
+
+            <td>
+                <a
+                    href="/especialidade/edt/<%= Especialidade._id %>"
+                    class="btn edit"
+                >
+                    Editar
+                </a>
+
+                <a
+                    href="/especialidade/del/<%= Especialidade._id %>"
+                    class="btn delete"
+                >
+                    Excluir
+                </a>
+            </td>
+
+        </tr>
+
+    <% } %>
+
+</table>
+
+<%- include('../rodape.ejs') %>

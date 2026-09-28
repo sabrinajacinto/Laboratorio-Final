@@ -1,0 +1,26 @@
+<%- include('../cabecalho.ejs') %>
+
+    <h1>Editar Especialidade</h1>
+
+    <div>
+        <a href="/especialidade/lst">Voltar para Lista</a>
+    </div>
+
+    <div>
+        <form method="post">
+
+            <label>Especialidade:</label>
+            <input type="text" name="especialidade" value="<%= especialidade.especialidade %>">
+            <br>
+
+            <label>Nome:</label>
+            <input type="text" name="nomedomedico" value="<%= especialidade.nomedomedico %>">
+            <br>
+            <br><br>
+
+            <button type="submit">Salvar Alterações</button>
+
+        </form>
+    </div>
+
+    <%- include('../rodape.ejs') %>

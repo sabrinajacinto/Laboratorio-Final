@@ -1,0 +1,84 @@
+<%- include('../cabecalho.ejs') %>
+
+    <h1>Editar Exame</h1>
+
+    <div>
+        <a href="/exame/lst">Voltar para Lista</a>
+    </div>
+
+    <div>
+        <form method="post">
+
+            <label>Data:</label>
+            <input type="text" name="data" value="<%= Exame.data %>">
+            <br>
+
+            <label>Tipo de Exame:</label>
+            <input type="text" name="tipoexame" value="<%= Exame.tipoexame %>">
+            <br>
+
+            <label>Local de Exame:</label>
+            <input type="text" name="localexame" value="<%= Exame.localexame %>">
+            <br>
+
+            <label>Usuário:</label>
+            <input type="text" name="usuario" value="<%= Exame.usuario %>">
+            <br>
+
+            <label>Laudo:</label>
+            <input type="text" name="laudo" value="<%= Exame.laudo %>">
+            <br>
+
+            <label>Arquivo atual:</label>
+
+            <% if (Exame.arquivo) { %>
+                <br>
+                <img src="data:image/jpeg;base64,<%= Exame.arquivo.toString('base64') %>" width="200">
+                <% } %>
+
+                    <br><br>
+
+                    <label>Trocar arquivo:</label>
+                    <input type="file" name="arquivo">
+
+                    <br><br>
+                    <label>Trocar arquivo:</label>
+                    <input type="file" name="arquivo">
+
+                    <label>Especialista:</label>
+                    <select name="especialista">
+
+                        <option value="Tec" <%=Exame.especialista=="card" ? "selected" : "" %>>
+                            Cardiologista
+                        </option>
+
+                        <option value="Tecno" <%=Exame.especialista=="neu" ? "selected" : "" %>>
+                            Neurologista
+                        </option>
+
+                        <option value="Bac" <%=Exame.especialista=="trau" ? "selected" : "" %>>
+                            Traumatologista
+                        </option>
+
+                        <option value="Bac" <%=Exame.especialista=="ort" ? "selected" : "" %>>
+                            Ortopedista
+                        </option>
+
+                        <option value="Bac" <%=Exame.especialista=="cli" ? "selected" : "" %>>
+                            Clinico Geral
+                        </option>
+
+                        <option value="Bac" <%=Exame.especialista=="gin" ? "selected" : "" %>>
+                            Ginecologista
+                        </option>
+
+                    </select>
+
+                    <br><br>
+
+                    <button type="submit">Salvar Alterações</button>
+
+        </form>
+    </div>
+
+    <%- include('../rodape.ejs') %>

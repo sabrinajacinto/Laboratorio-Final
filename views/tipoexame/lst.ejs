@@ -1,0 +1,60 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Tipos de Exame</h1>
+
+<a href="/tipoexame/add" class="btn add">+ Tipo de Exame</a>
+
+<form action="/tipoexame/find" method="POST" class="search">
+
+    <input
+        type="text"
+        name="filtro"
+        placeholder="Pesquisar tipo de exame..."
+    >
+
+    <button type="submit" class="btn">
+        Pesquisar
+    </button>
+
+</form>
+
+<table>
+
+    <tr>
+        <th>Nome:</th>
+        <th>Ação:</th>
+    </tr>
+
+    <% for (const TipoExame of tipoexames) { %>
+
+        <tr>
+
+            <td>
+                <%= TipoExame.nome %>
+            </td>
+
+            <td>
+
+                <a
+                    href="/tipoexame/edt/<%= TipoExame._id %>"
+                    class="btn edit"
+                >
+                    Editar
+                </a>
+
+                <a
+                    href="/tipoexame/del/<%= TipoExame._id %>"
+                    class="btn delete"
+                >
+                    Excluir
+                </a>
+
+            </td>
+
+        </tr>
+
+    <% } %>
+
+</table>
+
+<%- include('../rodape.ejs') %>

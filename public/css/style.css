@@ -1,0 +1,807 @@
+/* =========================================================
+   SISTEMA ADMINISTRATIVO - LABORATÓRIO
+   Tema: Médico / Clínico
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7f8 0%,
+            #f7fbfc 50%,
+            #edf5f7 100%
+        );
+
+    color: #334e59;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+   ========================================================= */
+
+.container {
+    width: 94%;
+    max-width: 1350px;
+
+    margin: 35px auto;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(28, 79, 94, 0.10),
+        0 2px 8px rgba(28, 79, 94, 0.05);
+
+    overflow: hidden;
+
+    min-height: 85vh;
+}
+
+
+/* =========================================================
+   CABEÇALHO / MENU
+   ========================================================= */
+
+.menu {
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075d73,
+            #087d91,
+            #0b8da0
+        );
+
+    padding: 18px 30px;
+
+    box-shadow:
+        0 4px 15px rgba(5, 76, 93, 0.18);
+}
+
+
+/* detalhe médico no topo */
+
+.menu::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background: #78d4d0;
+}
+
+
+.menu ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+.menu ul li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   BOTÕES DO MENU
+   ========================================================= */
+
+.menu .btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 11px 20px;
+
+    color: #ffffff;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        border 0.25s ease;
+}
+
+
+.menu .btn:hover {
+    background: rgba(255, 255, 255, 0.13);
+
+    border-color: rgba(255, 255, 255, 0.20);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ÁREA DE CONTEÚDO
+   ========================================================= */
+
+.container > h1,
+.container > h2,
+.container > h3,
+.container > form,
+.container > table,
+.container > .card {
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+h1 {
+    margin-top: 35px;
+    margin-bottom: 30px;
+
+    color: #075d73;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    letter-spacing: -0.4px;
+}
+
+
+h1::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 12px auto 0;
+
+    background: #4bb8b5;
+
+    border-radius: 10px;
+}
+
+
+h2 {
+    color: #075d73;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    margin-top: 25px;
+}
+
+
+h3 {
+    color: #16778b;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid #e0edef;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 4px 15px rgba(28, 79, 94, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(28, 79, 94, 0.09);
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 21px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #365863;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.form-group label::after {
+    content: "";
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: #fbfdfe;
+
+    border: 1px solid #cbdfe4;
+
+    border-radius: 8px;
+
+    color: #344f59;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #9ecbd3;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+
+    background: #ffffff;
+
+    border-color: #1590a4;
+
+    box-shadow:
+        0 0 0 3px rgba(21, 144, 164, 0.12);
+}
+
+
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+select {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   UPLOAD DE ARQUIVO
+   ========================================================= */
+
+input[type="file"] {
+    padding: 10px;
+
+    background: #f5fafb;
+
+    border: 2px dashed #b8d5db;
+
+    cursor: pointer;
+
+    color: #55717a;
+}
+
+
+input[type="file"]:hover {
+    background: #eef8f9;
+
+    border-color: #59aeb9;
+}
+
+
+/* =========================================================
+   BOTÕES GERAIS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 19px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.94;
+}
+
+
+.btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+   ========================================================= */
+
+.btn.add {
+    background:
+        linear-gradient(
+            135deg,
+            #087d91,
+            #1599aa
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(8, 125, 145, 0.20);
+}
+
+
+/* =========================================================
+   BOTÃO PADRÃO
+   ========================================================= */
+
+.btn {
+    background-color: #168399;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BOTÃO EDITAR
+   ========================================================= */
+
+.btn.edit {
+    background-color: #e2a72c;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BOTÃO EXCLUIR
+   ========================================================= */
+
+.btn.delete {
+    background-color: #d9534f;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BOTÃO CANCELAR
+   ========================================================= */
+
+.btn.cancelar {
+    background-color: #74858c;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+table {
+    width: calc(100% - 70px);
+
+    margin: 25px 35px 35px;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #dcecef;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px rgba(28, 79, 94, 0.05);
+}
+
+
+table th {
+    padding: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075d73,
+            #087d91
+        );
+
+    color: #ffffff;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    border: none;
+}
+
+
+table td {
+    padding: 14px 15px;
+
+    color: #405b64;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #e8f0f2;
+}
+
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+
+table tbody tr {
+    transition:
+        background 0.2s ease;
+}
+
+
+table tbody tr:hover {
+    background-color: #f1f9fa;
+}
+
+
+/* =========================================================
+   PESQUISA
+   ========================================================= */
+
+.search {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin: 0 35px 20px;
+}
+
+
+.search input {
+    width: 300px;
+
+    background-color: #ffffff;
+}
+
+
+/* =========================================================
+   ÁREA DE AÇÕES
+   ========================================================= */
+
+.acoes {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BADGES / STATUS
+   ========================================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background-color: #e4f5f6;
+
+    color: #087388;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+
+.alert {
+    margin: 20px 35px;
+
+    padding: 15px 18px;
+
+    border-radius: 8px;
+
+    background-color: #edf8f9;
+
+    border-left: 4px solid #1590a4;
+
+    color: #3c626b;
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.footer {
+    padding: 25px;
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #78919a;
+
+    font-size: 13px;
+
+    border-top: 1px solid #e0edef;
+
+    background: #f9fcfd;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    color: #087d91;
+
+    transition: color 0.2s ease;
+}
+
+
+a:hover {
+    color: #075d73;
+}
+
+
+/* =========================================================
+   SEPARADORES
+   ========================================================= */
+
+hr {
+    border: none;
+
+    height: 1px;
+
+    background: #dcecef;
+
+    margin: 25px 0;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 96%;
+
+        margin: 15px auto;
+
+        border-radius: 12px;
+    }
+
+    .menu {
+        padding: 15px;
+    }
+
+    .menu ul {
+        gap: 5px;
+    }
+
+    .container > h1,
+    .container > h2,
+    .container > h3,
+    .container > form,
+    .container > table,
+    .container > .card {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    table {
+        width: calc(100% - 40px);
+
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .search {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        background: #f4f9fa;
+    }
+
+    .container {
+        width: 100%;
+
+        margin: 0;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        width: 100%;
+    }
+
+    .menu .btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .search {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+    .acoes {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .acoes .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,37 @@
+<%-include('../cabecalho.ejs')%>
+    <h1>Escolher Especialidade </h1>
+    <div>
+        <a href="/especialidade/lst">Listar</a>
+    </div>
+    <div>
+        <form method="post">
+
+
+            <label>Especialidade:</label>
+            <select name="especialidade" id="">
+                <option value=""></option>
+                <option value="Cardiologista">Cardiologista</option>
+                <option value="Neurologista">Neurologista</option>
+                <option value="Traumatologista">Traumatologista</option>
+                <option value="Ortopedista">Ortopedista</option>
+                <option value="Clinico">Clinico Geral</option>
+                <option value="Ginecologista">Ginecologista</option>
+            </select>
+
+
+            <label>Nome do Médico:</label>
+            <select name="nomedomedico" id="">
+                <option value=""></option>
+                <option value="Sabrina">Sabrina Irigoi Jacinto</option>
+                <option value="Roberta">Roberta Guasque</option>
+                <option value="Gabriel">Gabriel Dias</option>
+                <option value="Mariana">Mariana Barbosa</option>
+                <option value="Ana">Ana Silva</option>
+                <option value="Joao">João Alves</option>
+            </select>
+            <button type="submit">Cadastrar</button>
+
+        </form>
+    </div>
+
+    <%-include('../rodape.ejs')%>

@@ -1,0 +1,51 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Tipo de Exame</h1>
+
+<div>
+    <a href="/tipoexame/lst">Voltar para Lista</a>
+</div>
+
+<div>
+    <form method="post">
+
+        <input type="hidden" name="id" value="<%=tipoexame._id%>">
+
+        <label>Tipo de Exame:</label>
+
+        <select name="nome">
+
+            <option value="Cardiológico" <%= tipoexame.nome === "Cardiológico" ? "selected" : "" %>>
+                Cardiológico
+            </option>
+
+            <option value="Neurológico" <%= tipoexame.nome === "Neurológico" ? "selected" : "" %>>
+                Neurológico
+            </option>
+
+            <option value="Traumatológico" <%= tipoexame.nome === "Traumatológico" ? "selected" : "" %>>
+                Traumatológico
+            </option>
+
+            <option value="Ortopédico" <%= tipoexame.nome === "Ortopédico" ? "selected" : "" %>>
+                Ortopédico
+            </option>
+
+            <option value="Ginecológico" <%= tipoexame.nome === "Ginecológico" ? "selected" : "" %>>
+                Ginecológico
+            </option>
+
+            <option value="Clínico Geral" <%= tipoexame.nome === "Clínico Geral" ? "selected" : "" %>>
+                Clínico Geral
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">Salvar Alterações</button>
+
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

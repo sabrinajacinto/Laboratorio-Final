@@ -1,0 +1,31 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Cadastrar Tipo de Exame</h1>
+
+<div>
+    <a href="/tipoexame/lst">Listar</a>
+</div>
+
+<div>
+    <form method="post">
+
+        <label>Tipo de Exame:</label>
+
+        <select name="nome">
+            <option value="">Selecione</option>
+            <option value="Cardiológico">Cardiológico</option>
+            <option value="Neurológico">Neurológico</option>
+            <option value="Traumatológico">Traumatológico</option>
+            <option value="Ortopédico">Ortopédico</option>
+            <option value="Ginecológico">Ginecológico</option>
+            <option value="Clínico Geral">Clínico Geral</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

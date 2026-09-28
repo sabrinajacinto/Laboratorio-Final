@@ -1,0 +1,60 @@
+<%- include('../cabecalho.ejs') %>
+
+    <h1>Realizar Exame</h1>
+
+    <div>
+        <a href="/exame/lst">Listar</a>
+    </div>
+
+    <div>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <label>Data:</label>
+            <input type="date" name="data">
+            <br><br>
+
+            <label>Tipo de Exame:</label>
+
+            <div class="mb-3">
+                <label for="tipoexame" class="form-label">Tipo Exame</label>
+                <select name="tipoexame" id="tipoexame" class="form-control">
+    <option value="">selecione</option>
+
+    <% tipoexames.forEach(function(tipoexame){ %>
+
+        <option value="<%= tipoexame._id %>">
+            <%= tipoexame.nome %>
+        </option>
+
+    <% }) %>
+</select>
+            </div>
+            <br><br>
+
+            <label>Local do Exame:</label>
+            <input type="text" name="localexame">
+            <br><br>
+
+            <label>Usuário:</label>
+            <input type="text" name="usuario">
+            <br><br>
+
+            <label>Especialista:</label>
+            <input type="text" name="especialista">
+            <br><br>
+
+            <label>Laudo:</label>
+            <input type="text" name="laudo">
+            <br><br>
+
+            <label>Arquivo:</label>
+            <input type="file" name="arquivo">
+            <br><br>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+    </div>
+
+    <%- include('../rodape.ejs') %>

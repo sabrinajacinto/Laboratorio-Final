@@ -1,0 +1,36 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Usuário</h1>
+
+<form method="post">
+
+    <input type="hidden" name="id" value="<%=usuario._id%>"><br>
+
+    <label>Usuário:</label>
+    <input type="text" name="nome" value="<%=usuario.nome%>"><br>
+
+    <label>E-mail:</label>
+    <input type="text" name="email" value="<%=usuario.email%>"><br>
+
+    <label>Senha:</label>
+    <input type="text" name="senha" value="<%=usuario.senha%>"><br>
+
+    <label>Telefone:</label>
+    <input type="text" name="telefone" value="<%=usuario.telefone%>"><br>
+
+    <label>Data de Nascimento:</label>
+    <input type="date" name="dataNascimento" value="<%=usuario.dataNascimento%>"><br>
+
+    <label>Possui alguma cirurgia?</label>
+    <input type="text" name="algumacirurgia" value="<%=usuario.algumacirurgia%>"><br>
+
+    <label>CPF:</label>
+    <input type="text" name="cpf" value="<%=usuario.cpf%>"><br>
+
+    <button type="submit" class="btn">Salvar</button>
+
+    <a href="/usuario/lst" class="btn cancelar">Cancelar</a>
+
+</form>
+
+<%- include('../rodape.ejs') %>

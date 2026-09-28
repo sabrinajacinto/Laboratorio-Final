@@ -1,0 +1,31 @@
+<%-include('../cabecalho.ejs')%>
+    <h1>Adicionar Usuário</h1>
+    <div>
+        <a href="/usuario/lst">Listar</a>
+    </div>
+    <div>
+        <form method="post">
+            <label>Usuário:</label>
+            <input type="text" name="nome"><br>
+            <label>E-mail:</label>
+            <input type="text" name="email"><br>
+            <label>Senha:</label>
+            <input type="text" name="senha"><br>
+            <label>Telefone:</label>
+            <input type="text" name="telefone"><br>
+            <label>Data de Nascimento:</label>
+            <input type="date" name="dataNascimento"><br>
+            <label>Possui Alguma Cirurgia:</label>
+            <select name="algumacirurgia">
+                <option value="">Selecione</option>
+                <option value="Sim">Sim</option>
+                 <option value="Nao">Não</option>
+            </select>
+            <label>CPF:</label>
+            <input type="text" name="cpf"><br>
+            <button type="submit">Cadastrar</button>
+
+        </form>
+    </div>
+
+    <%-include('../rodape.ejs')%>

@@ -1,0 +1,103 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Exames</h1>
+
+<a href="/exame/add" class="btn add">
+    + Exame
+</a>
+
+<form action="/exame/find" method="POST" class="search">
+
+    <input
+        type="text"
+        name="filtro"
+        placeholder="Pesquisar exame..."
+    >
+
+    <button type="submit" class="btn">
+        Pesquisar
+    </button>
+
+</form>
+
+<table>
+
+    <tr>
+        <th>Data:</th>
+        <th>Tipo de Exame:</th>
+        <th>Local do Exame:</th>
+        <th>Usuário:</th>
+        <th>Laudo:</th>
+        <th>Especialista:</th>
+        <th>Arquivo:</th>
+        <th>Ação:</th>
+    </tr>
+
+    <% for (const Exame of exames) { %>
+
+        <tr>
+
+            <td>
+                <%= Exame.data %>
+            </td>
+
+            <td>
+                <%= Exame.tipoexame != null
+                    ? Exame.tipoexame.nome
+                    : "" %>
+            </td>
+
+            <td>
+                <%= Exame.localexame %>
+            </td>
+
+            <td>
+                <%= Exame.usuario %>
+            </td>
+
+            <td>
+                <%= Exame.laudo %>
+            </td>
+
+            <td>
+                <%= Exame.especialista %>
+            </td>
+
+            <td>
+
+                <% if (Exame.arquivo) { %>
+
+                    <img
+                        src="data:image/jpeg;base64,<%= Exame.arquivo.toString('base64') %>"
+                        width="150"
+                    >
+
+                <% } %>
+
+            </td>
+
+            <td>
+
+                <a
+                    href="/exame/edt/<%= Exame._id %>"
+                    class="btn edit"
+                >
+                    Editar
+                </a>
+
+                <a
+                    href="/exame/del/<%= Exame._id %>"
+                    class="btn delete"
+                >
+                    Excluir
+                </a>
+
+            </td>
+
+        </tr>
+
+    <% } %>
+
+</table>
+
+<%- include('../rodape.ejs') %>
